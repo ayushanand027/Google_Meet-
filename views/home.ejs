@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="public/assets/icon.png" type="image/png">
+
+    <link
+      rel="stylesheet"
+      href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Google Meet Clone</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="./" style="color: rgb(72, 72, 72); font-weight: 400;">
+        <img src="assets/google.png" style="width: 120px; height: auto;" alt="Logo">
+         Meet</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        
+        <div class="navbar-nav ml-auto">
+          <span id="currentDateTime" class="nav-item nav-link"></span>
+        </div>
+      </div>
+    </nav>
+    <style>
+      #currentDateTime {
+        color: black;
+      }
+    </style>
+    
+    <div class="main__home">
+      <div class="main__home__header">
+       
+      </div>
+
+      <div class="main__body" >
+        <div class="main__home__image">
+          <img src="assets/unnamed.png" alt="meet-image" />
+        </div>
+        <div class="main__text_btn">
+
+        <div class="main__about__text">
+          <h2>Video calls and meetings for everyone.</h2>
+          <p>
+            Google Meet is one service for secure, high-quality video meetings<br> and calls available for everyone, on any device.
+          </p>
+          
+        </div>
+        
+
+        <div class="main__meeting">
+          <div onclick="newMeet('<%=ROOM_ID%>')" class="new__meeting__button">
+            <i class="fa-solid fa-video"></i>
+            <span style="font-size: 15px; font-weight: 200;"><b>Start a meeting</b></span>
+          </div>
+          <div class="link__meeting">
+            <form id="join-link">
+              <div class="input__icon">
+                <i style="position: absolute" class="fa-solid fa-keyboard"></i>
+                <input
+                  class="input__link"
+                  type="text"
+                  id="code"
+                  name="code"
+                  placeholder="Enter meeting code"
+                />
+                <input type="submit" value="Join" class="join__button" />
+              </div>
+            </form>
+          </div>
+          <div class="equidistant__element">
+            <!-- Add your content for the equidistant element here -->
+           
+          </div>
+        </div>
+        
+      </div>
+      </div>
+      <div class="safety_div">
+      <div class="safety_image">
+        <img src="assets/meetsafety.png" alt="meet-image" />
+      </div>
+     
+
+      <div class="main__safety__text">
+        <h2>Meet safely</h2>
+        <p>
+          Meet uses the same protections that Google uses to secure your<br> information and safeguard your privacy. Meet video conferences are <br>encrypted in transit, and our array of safety measures are continuously <br>updated for added protection.
+        </p>
+        
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/e28dbf8b03.js"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    function updateDateTime() {
+      var currentDateTime = new Date();
+      var options = { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+      var formattedDateTime = currentDateTime.toLocaleString('en-US', options).replace(',', '') + ' .';
+      document.getElementById('currentDateTime').textContent = formattedDateTime;
+    }
+  
+    setInterval(updateDateTime, 1000); // Update time every second
+  </script>
+  
+  <script>
+    function newMeet(roomId) {
+      window.location.href = `/${roomId}`;
+    }
+    var form = document.getElementById("join-link");
+    form.addEventListener("submit", () => {
+      // console.log()
+      window.location.href = "/" + document.getElementById("code").value;
+      event.preventDefault();
+    });
+    var username = "<%= username %>";
+  </script>
+</html>
