@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css"/>
+    <title>Google Meet Clone</title>
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+    crossorigin="anonymous"
+  />
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="./" style="color: rgb(72, 72, 72); font-weight: 400;">
+        <img src="assets/google.png" style="width: 120px; height: auto;" alt="Logo">
+         Meet</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        
+        <div class="navbar-nav ml-auto">
+          <span id="currentDateTime" class="nav-item nav-link"></span>
+        </div>
+      </div>
+    </nav>
+    <div class="bg_image">
+        <img src="assets/6002f97851c2ec00048c6c72.png" alt="background_image">
+    </div>
+    
+            <div class="loogedin">
+            <h2 >You are not logged in<br> Login to continue</h2><br>
+            <div>
+            <button class="login_button"><a href="/auth/google"><b>Login with google</b></a></button>
+        </div>
+         </div>
+            <style>
+                #currentDateTime {
+                  color: black;
+                }
+                .loogedin{
+                    margin: 5% 37%;
+                    border: none;
+                }
+               .login_button{
+                border-radius: 10px;
+                border: none;
+                padding: 10px;
+               }
+               .bg_image{
+                display: flex;
+                margin: 5% 30%;
+               }
+               .bg_image img{
+                width:600px;
+                height:auto;
+               }
+               
+                
+              </style>
+
+            <script>
+                function updateDateTime() {
+                  var currentDateTime = new Date();
+                  var options = { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+                  var formattedDateTime = currentDateTime.toLocaleString('en-US', options).replace(',', '') + ' .';
+                  document.getElementById('currentDateTime').textContent = formattedDateTime;
+                }
+              
+                setInterval(updateDateTime, 1000); // Update time every second
+              </script>
+            
+        </body>
+    </head>
+</html>

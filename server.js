@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
     if (req.user) {
         res.render(`home`, { ROOM_ID: ROOM_ID, username: req.user.displayName })
     } else
-        res.send(`<h3>You are not logged in. Login to continue.</h3><br><a href="/auth/google">Login with google</a>`)
+        res.render('login_page.ejs');
 })
 
 
